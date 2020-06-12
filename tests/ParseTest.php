@@ -39,7 +39,11 @@ class ParseTest extends TestCase
             'equals success' => ['data1=3', 'data1', $alias, "e1.data1 = '3'"],
             'less than success' => ['data1=lt:3', 'data1', $alias, "e1.data1 < '3'"],
             'less than or equals success' => ['data1=le:3', 'data1', $alias, "e1.data1 <= '3'"],
-            'finish success' => ['data1=le:3', 'data1', $alias, "e1.data1 <= '3'"],
+            'finish success' => ['data1=finish:3', 'data1', $alias, "e1.data1 LIKE '%3'"],
+            'start success' => ['data1=start:3', 'data1', $alias, "e1.data1 LIKE '3%'"],
+            'not equals success' => ['data1=ne:3', 'data1', $alias, "e1.data1 <> '3'"],
+            'greater than or equals success' => ['data1=ge:3', 'data1', $alias, "e1.data1 >= '3'"],
+            'greater than success' => ['data1=gt:3', 'data1', $alias, "e1.data1 > '3'"],
         ];
     }
 }

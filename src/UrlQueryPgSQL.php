@@ -30,12 +30,12 @@ class UrlQueryPgSQL extends AbstractUrlQuerySql
 
     protected function urlQueryFilterGreaterThanToSql($field, $value): ?string
     {
-        // TODO: Implement urlQueryFilterGreaterThanToSql() method.
+        return sprintf('%s > \'%s\'', pg_escape_string($field), pg_escape_string($value));
     }
 
     protected function urlQueryFilterGreaterThanOrEqualsToSql($field, $value): ?string
     {
-        // TODO: Implement urlQueryFilterGreaterThanOrEqualsToSql() method.
+        return sprintf('%s >= \'%s\'', pg_escape_string($field), pg_escape_string($value));
     }
 
     protected function urlQueryFilterInToSql($field, array $values): ?string
@@ -60,7 +60,7 @@ class UrlQueryPgSQL extends AbstractUrlQuerySql
 
     protected function urlQueryFilterNotEqualsToSql($field, $value): ?string
     {
-        // TODO: Implement urlQueryFilterNotEqualsToSql() method.
+        return sprintf('%s <> \'%s\'', pg_escape_string($field), pg_escape_string($value));
     }
 
     protected function urlQueryFilterRegexToSql($field, $value): ?string
@@ -70,7 +70,7 @@ class UrlQueryPgSQL extends AbstractUrlQuerySql
 
     protected function urlQueryFilterStartToSql($field, $value): ?string
     {
-        // TODO: Implement urlQueryFilterStartToSql() method.
+        return sprintf('%s LIKE \'%s%%\'', pg_escape_string($field), pg_escape_string($value));
     }
 
     public function urlQuerySort($field, $type): ?string
