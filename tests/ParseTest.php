@@ -44,6 +44,9 @@ class ParseTest extends TestCase
             'not equals success' => ['data1=ne:3', 'data1', $alias, "e1.data1 <> '3'"],
             'greater than or equals success' => ['data1=ge:3', 'data1', $alias, "e1.data1 >= '3'"],
             'greater than success' => ['data1=gt:3', 'data1', $alias, "e1.data1 > '3'"],
+            'in success' => ['data1=in:3,4,5', 'data1', $alias, "e1.data1 IN ('3','4','5')"],
+            'nil success' => ['data1=nil:', 'data1', $alias, "e1.data1 IS NULL"],
+            'regex success' => ['data1=regex:[0-9]', 'data1', $alias, "e1.data1 ~ '[0-9]'"],
         ];
     }
 }

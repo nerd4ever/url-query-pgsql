@@ -40,7 +40,10 @@ class UrlQueryPgSQL extends AbstractUrlQuerySql
 
     protected function urlQueryFilterInToSql($field, array $values): ?string
     {
-        // TODO: Implement urlQueryFilterInToSql() method.
+        $in = array();
+        foreach ($values as $v) $in[] = pg_escape_string($v);
+        $mValues = join("','", $in);
+        return sprintf('%s IN (\'%s\')', pg_escape_string($field), $mValues);
     }
 
     protected function urlQueryFilterLessThanToSql($field, $value): ?string
@@ -55,7 +58,7 @@ class UrlQueryPgSQL extends AbstractUrlQuerySql
 
     protected function urlQueryFilterNilToSql($field): ?string
     {
-        // TODO: Implement urlQueryFilterNilToSql() method.
+        return sprintf('%s IS NULL', pg_escape_string($field));
     }
 
     protected function urlQueryFilterNotEqualsToSql($field, $value): ?string
@@ -65,7 +68,7 @@ class UrlQueryPgSQL extends AbstractUrlQuerySql
 
     protected function urlQueryFilterRegexToSql($field, $value): ?string
     {
-        // TODO: Implement urlQueryFilterRegexToSql() method.
+        return sprintf('%s ~ \'%s\'', pg_escape_string($field), $value);
     }
 
     protected function urlQueryFilterStartToSql($field, $value): ?string
