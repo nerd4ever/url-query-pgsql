@@ -44,7 +44,7 @@ class UrlQueryPgSQL extends AbstractUrlQuerySql
         $in = array();
         foreach ($values as $v) $in[] = pg_escape_string($v);
         $mValues = join("','", $in);
-        return sprintf('%s IN (\'%s\')', pg_escape_string($field), $mValues);
+        return sprintf('%s IN (\'%s\')', $field, $mValues);
     }
 
     protected function urlQueryFilterLessThanToSql($field, $value): ?string
