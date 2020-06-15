@@ -1,4 +1,4 @@
-# nerd4ever/url-query
+# nerd4ever/url-query-pgsql
 
 A library to extract parameters to filter and sort.
 
