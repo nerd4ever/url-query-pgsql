@@ -2,7 +2,7 @@
   "name": "nerd4ever/url-query-pgsql",
   "description": "A library to used to process UrlQuerySQL in PostgreSQL",
   "type": "library",
-  "license": "GPL-3.0-or-later",
+  "license": ["GPL-3.0-or-later", "proprietary"],
   "authors": [
     {
       "name": "Nerd4ever Desenvolvimento Tecnologico e Inovacao Ltda",
@@ -18,8 +18,8 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "php": "^7.3.11",
-    "ext-pgsql": "*",
+    "php": "^7.1.3",
+    "ext-pdo": "*",
     "nerd4ever/url-query": "1.0.*"
   },
   "require-dev": {
